@@ -3,13 +3,7 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Alberto Pimienta -- Copywriting -- @pimienta
+    Jorge Pérez -- Design & Development -- @slider.037
+    Gisela Margarito -- Design & Development -- @megumosa
 
-# THANKS
-
-    <name>
-
-# TECHNOLOGY COLOPHON
-
-    HTML5, CSS3
-    jQuery, Modernizr
