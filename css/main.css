@@ -305,6 +305,11 @@ __________________
 
 }
 
+@media only screen and (max-width: 999px) {
+#nav-links{ position:relative;}
+section {    margin:0 10%; width: 80%;}
+}
+
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),
