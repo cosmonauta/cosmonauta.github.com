@@ -31,6 +31,84 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">Estás usando un navegador desactualizado. Por favor <a href="http://browsehappy.com/">actualízalo</a> o <a href="http://www.google.com/chromeframe/?redirect=true">activa Google Chrome Frame</a> para mejorar tu experiencia.</p>
         <![endif]-->
+   
+   <nav id="nav-links">
+   		
+				<ul class="ch-grid">
+					<li>
+						<div class="ch-item ch-img-1">				
+							<div class="ch-info-wrap">
+								<div class="ch-info">
+									<div class="ch-info-front ch-img-1"></div>
+									<div class="ch-info-back">
+										<a href="#nosotros-nav" class="scroll"><h3>Nosotros</h3></a>
+										<!--<p>by Cosmonauta <a href="#">Ir a cosmonauta.mx</a></p>-->
+									</div>	
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ch-item ch-img-2">
+							<div class="ch-info-wrap">
+								<div class="ch-info">
+									<div class="ch-info-front ch-img-2"></div>
+									<div class="ch-info-back">
+										<a href="#servicios-nav" class="scroll"><h3>Servicios</h3></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ch-item ch-img-3">
+							<div class="ch-info-wrap">
+								<div class="ch-info">
+									<div class="ch-info-front ch-img-3"></div>
+									<div class="ch-info-back">
+										<a href="#contacto-nav" class="scroll"><h3>Contacto</h3></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				
+			</nav>
+        
+       
+ 
+   
+        <section class="contenido-panel" id="nosotros-nav">
+            <h2>Nosotros</h2>
+            <p>Cosmonauta es una agencia dedicada a la conceptualización, desarrollo e implementación de soluciones digitales para todo tipo de proyectos. Partimos desde lo digital, porque creemos que es el espacio ideal donde se puede conjugar creatividad y estrategia para obtener resultados medibles.</p>
+        </section>
+ 
+        <section class="contenido-panel" id="servicios-nav">
+            <h2>Servicios</h2>
+             <ul>
+                <li>Digital Branding</li>
+                <li>Diseño y desarrollo web</li>
+                <li>Publicidad digital:
+                    <ul>
+                        <li>Google AdWords</li>
+                        <li>Email Marketing</li>
+                        <li>Facebook Ads</li>
+                    </ul>
+                </li>
+                <li>Social Networking</li>
+            </ul>
+        </section>
+        
+        <section class="contenido-panel" id="contacto-nav">
+            <h2>Contacto</h2>
+            <p>Si quieres saber más sobre cómo podemos ayudarte a integrar las ventajas de internet, redes sociales, dispositivos móviles y aplicaciones con tu negocio, escríbenos a <a href="mailto:contacto@cosmonauta.mx">contacto@cosmonauta.mx</p>
+        </section>
+
+        
+        
+        <!--
+        
         <header class="hero">
             <h1>Cosmonauta</h1>
             <h2>Digital by default</h2>
@@ -55,7 +133,7 @@
                 <li>Social Networking</li>
             </ul>
         </section>
-
+-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 
@@ -69,6 +147,19 @@ d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
 _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
 $.src='//cdn.zopim.com/?11KsO0oQhYWCUpDcHcsufSY1A2V2oQ0d';z.t=+new Date;$.
 type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+  
+/*  $("#nosotros-nav").click(function() {   $(document).scrollTop( $("#nosotros-content").offset().top ); alert("nosotros");  });
+  $("#servicios-nav").click(function() {   $(document).scrollTop( $("#servicios-content").offset().top ); alert("servicios");  });
+  $("#contacto-nav").click(function() {   $(document).scrollTop( $("#contacto-content").offset().top ); alert("contacto");  });*/
+
+jQuery(document).ready(function($) {
+ 
+	$(".scroll").click(function(event){		
+		event.preventDefault();
+		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+	});
+});
+
 </script>
 <!--End of Zopim Live Chat Script-->
 
