@@ -15,7 +15,7 @@ body {
     //font-family: 'Signika', sans-serif;
     font-size: 22px;
     line-height: 1.4;
-    background:#eaeaea url(../images/bgtextura.jpg);
+    background:#eaeaea url(../images/bgtextura.jpg) repeat fixed;
     color: #131313;
     //text-shadow: black 0.1em 0.1em 0.2em;
    // width: 60%;
