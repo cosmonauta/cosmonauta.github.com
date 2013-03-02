@@ -294,7 +294,7 @@ __________________
 #nav-links{ position:fixed;
     top:0;
     width:100%;
-    background: url(../images/bgtextura.png) bottom repeat-x center;
+    background: url(../images/bgtextura.png) repeat-x bottom center;
     padding-bottom: 5%;
 }
 
