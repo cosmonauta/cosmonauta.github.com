@@ -18,9 +18,8 @@ body {
     background:#eaeaea url(../images/bgtextura.jpg);
     color: #131313;
     //text-shadow: black 0.1em 0.1em 0.2em;
-    width: 60%;
+   // width: 60%;
     height: 50%;
-    margin: 0 auto;
     font-weight: 100;
 }
 
@@ -49,7 +48,6 @@ header.hero {
 
 section {
     margin:0 20%;
-    width: 60%;
 	display:block;
 	min-height:150%;
 }
@@ -293,12 +291,20 @@ __________________
 }
 
 
-#nav-links{ position:fixed;}
+#nav-links{ position:fixed;
+    top:0;
+    width:100%;
+    background-image: url(../images/bgtextura.png);
+    padding-bottom: 5%;
+}
 
 .contenido-panel h2.titulopanel, .contenido-panel h1.titulopanel{ padding-top:310px;}
 .contenido-panel h1.titulopanel{ margin-bottom:0; padding-bottom:0;}
 .contenido-panel h3{ margin-top:0; padding-top:0;}
-.contenido-panel{ padding-bottom:200px;}
+.contenido-panel{ padding-bottom:200px;
+margin: 0 auto;
+width:60%;
+}
 
 /* ==========================================================================
    Media Queries
