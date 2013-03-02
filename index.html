@@ -120,8 +120,8 @@ jQuery(document).ready(function($) {
  
 	$(".scroll").click(function(event){		
 		event.preventDefault();
-        _gaq.push(['_trackPageview', '/virtual/' + event.target.innerText]);
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+                _gaq.push(['_trackPageview', '/virtual/' + event.target.innerText]);
 	});
 });
 
