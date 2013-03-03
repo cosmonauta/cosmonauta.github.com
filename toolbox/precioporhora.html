@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Cosmonauta | Digital By Default</title>
+        <meta name="description" content="Calculadora de precio de hora de trabajo">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="../css/normalize.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700,7&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="../js/preciohora.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css">
+    </head>
+    <body lang="es">
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-ZMWQ"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-ZMWQ');</script>
+        <!-- End Google Tag Manager -->
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">Estás usando un navegador desactualizado. Por favor <a href="http://browsehappy.com/">actualízalo</a> o <a href="http://www.google.com/chromeframe/?redirect=true">activa Google Chrome Frame</a> para mejorar tu experiencia.</p>
+        <![endif]-->
+        <section ng-app>
+        <h1>Calculadora de precio por hora</h1> 
+
+        <div ng-controller="CalculadoraCtrl">
+            <label for="salario">Salario mensual</label>
+            <input id="salario_mes" type="text" ng-model="salario_mensual_promedio">
+            <h3>Costo básico de hora: 
+                <span>{{costo_basico() | currency}} </span></h3>
+            <p>Horas posibles de trabajo al año <strong>{{horas_posibles()}}hs</strong></p>
+            <p>De las cuales NO se pueden vender <strong>{{horas_no_posibles()}}hs</strong></p>
+            <ul>
+                <li>
+                    {{horas_feriados()}}hs de {{feriados}} días feriados.
+                </li>
+                <li>
+                    {{horas_vacaciones()}}hs de <input type="text" ng-model="vacaciones"> días de vacaciones.
+                </li>
+                <li>{{horas_prima()}}hs por prima vacacional.</li>
+                <li>{{horas_incapacidad()}}hs por <input type="text" ng-model="incapacidad"> días de incapacidad.</li>
+            </ul>
+            
+            <p>Pero el <input type="text" ng-model="tiempo_admin">% de tu tiempo no es diseño sino tiempo administrativo.</p>
+
+            <p>Sumamos a las horas que no podemos vender {{horas_no_posibles()}}hs el tiempo administrativo {{horas_admin()}} y obtenemos el total de horas no vendibles: <strong>{{horas_no_vendibles()}}hs</strong></p>
+            
+            <p>Con unos gastos fijos mensuales de <input type="text" ng-model="fijos_mensuales"> entonces al año gastarás {{fijos_anuales() | currency}}.</p>
+
+            <p>Sumamos el costo de los fijos {{fijos_anuales() | currency}} + costo de las horas no vendibles {{costo_no_vendibles() | currency}}, tenemos un costo extra de <strong>{{costo_extra_anual() | currency}}</strong> </p>
+
+            <p>Calculamos las horas efectivas restando las {{horas_posibles()}}hs posibles menos {{horas_no_posibles()}}hs no posibles, lo que es igual a <strong>{{horas_efectivas()}}hs efectivas de trabajo.</strong> 
+
+            <p>A las horas efectivas hay que restar las horas administrativas {{horas_admin()}}hs para obtener el total de horas de diseño que podemos vender: <strong>{{horas_vendibles()}}hs </strong></p>
+            
+            <p>Multiplicamos las horas vendibles {{horas_vendibles()}} por el costo básico de hora {{costo_basico() | currency }} y estimamos <strong>nuestra ganancia anual {{ganancia_anual() | currency}}.</strong></p>
+
+            <p>Tomamos nuestra ganancia {{ganancia_anual() | currency}} y la dividimos entre el costo extra anual {{costo_extra_anual() | currency}} y encontramos el <strong>porcentaje de rentabilidad: {{porcentaje_rentabilidad()}}%</strong></p>
+
+            <p>Para cubrir nuestros costo extra aplicamos el porcentaje de rentabilidad a nuestro costo básico: {{porcentaje_rentabilidad_pesos() | currency}} </p>
+
+            <p>Sumamos lo necesario para cubrir el costo extra al costo básico y obtenemos el <strong>precio justo por hora: {{hora_justa() | currency}}</strong></p>
+
+            <p>Aplicamos un porcentaje de utilidad del <input type="text" ng-model="porcentaje_utilidad"> para obtener:</p>
+
+            <h2>Hora de diseño: {{hora_diseno()|currency}}</h2>
+
+            <p>Al año puedes vender {{horas_vendibles()}}hs por lo que recibirías {{venta_anual() | currency}} que dividido en en los doce meses representa una venta mensual {{venta_mensual() | currency}} </p>
+        </div>  
+        </section>
+    </body>
+</html>
