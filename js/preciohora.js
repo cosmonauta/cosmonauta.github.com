@@ -1,17 +1,20 @@
-function CalculadoraCtrl($scope) {
-  $scope.salario_mensual_promedio = 8000;
+var CalcApp = angular.module('CalcApp', ['ui']);
+
+
+CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
+  $scope.salario_mensual_promedio = 0;
   $scope.horas = 8;
   $scope.dias = 5;
   $scope.semanas = 52;
   $scope.meses = 12;
   $scope.aguinaldo = 0.5;
-  $scope.feriados = 7;
-  $scope.vacaciones = 6;
+  $scope.feriados = 0;
+  $scope.vacaciones = 0;
   $scope.prima = 0.25;
-  $scope.incapacidad = 5;
-  $scope.tiempo_admin = 30;
-  $scope.fijos_mensuales = 5000;
-  $scope.porcentaje_utilidad = 20;
+  $scope.incapacidad = 0;
+  $scope.tiempo_admin = 0;
+  $scope.fijos_mensuales = 0;
+  $scope.porcentaje_utilidad = 0;
 
   $scope.salario_anual = function(){
     return $scope.salario_mensual_promedio * ($scope.meses + $scope.aguinaldo);
@@ -99,5 +102,4 @@ function CalculadoraCtrl($scope) {
   $scope.venta_mensual = function(){
     return $scope.venta_anual() / $scope.meses;
   };
-
-}
+});

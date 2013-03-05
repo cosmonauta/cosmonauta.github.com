@@ -13,14 +13,20 @@
         <link rel="stylesheet" href="../css/normalize.min.css">
         <link rel="stylesheet" href="../css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700,7&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css">
+        
+        <link rel="stylesheet" href="../css/angular-ui.min.css">
 
         <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="../js/preciohora.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css">
+        <script src="../js/vendor/jquery.maskedinput.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+        <script type="text/javascript" src="../js/vendor/angular-ui.min.js"></script>
+        <script type="text/javascript" src="../js/vendor/angular-ui-ieshiv.min.js"></script>
+        <script src="../js/preciohora.js"></script>
     </head>
     <body lang="es">
         <!-- Google Tag Manager -->
@@ -36,10 +42,10 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">Estás usando un navegador desactualizado. Por favor <a href="http://browsehappy.com/">actualízalo</a> o <a href="http://www.google.com/chromeframe/?redirect=true">activa Google Chrome Frame</a> para mejorar tu experiencia.</p>
         <![endif]-->
-        <section ng-app>
+        <section ng-app="CalcApp">
         <h1>Calculadora de precio por hora</h1> 
 
-        <div ng-controller="CalculadoraCtrl">
+        <div ng-controller="calcCtrl">
             <label for="salario">Salario mensual</label>
             <input id="salario_mes" type="text" ng-model="salario_mensual_promedio">
             <h3>Costo básico de hora: 
