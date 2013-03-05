@@ -47,37 +47,37 @@
 
         <div ng-controller="calcCtrl">
             <label for="salario">Salario mensual</label>
-            <input id="salario_mes" type="text" ng-model="salario_mensual_promedio">
+            <input id="salario_mes" type="text" ng-model="salario_mensual_promedio" ui-validate>
             <h3>Costo básico de hora: 
                 <span>{{costo_basico() | currency}} </span></h3>
-            <p>Horas posibles de trabajo al año <strong>{{horas_posibles()}}hs</strong></p>
-            <p>De las cuales NO se pueden vender <strong>{{horas_no_posibles()}}hs</strong></p>
+            <p>Horas posibles de trabajo al año <strong>{{horas_posibles()|number}}hs</strong></p>
+            <p>De las cuales NO se pueden vender <strong>{{horas_no_posibles()|number}}hs</strong></p>
             <ul>
                 <li>
-                    {{horas_feriados()}}hs de {{feriados}} días feriados.
+                    {{horas_feriados()|number}}hs de {{feriados}} días feriados.
                 </li>
                 <li>
-                    {{horas_vacaciones()}}hs de <input type="text" ng-model="vacaciones"> días de vacaciones.
+                    {{horas_vacaciones()|number}}hs de <input type="text" ng-model="vacaciones"> días de vacaciones.
                 </li>
-                <li>{{horas_prima()}}hs por prima vacacional.</li>
-                <li>{{horas_incapacidad()}}hs por <input type="text" ng-model="incapacidad"> días de incapacidad.</li>
+                <li>{{horas_prima()|number}}hs por prima vacacional.</li>
+                <li>{{horas_incapacidad()|number}}hs por <input type="text" ng-model="incapacidad"> días de incapacidad.</li>
             </ul>
             
             <p>Pero el <input type="text" ng-model="tiempo_admin">% de tu tiempo no es diseño sino tiempo administrativo.</p>
 
-            <p>Sumamos a las horas que no podemos vender {{horas_no_posibles()}}hs el tiempo administrativo {{horas_admin()}} y obtenemos el total de horas no vendibles: <strong>{{horas_no_vendibles()}}hs</strong></p>
+            <p>Sumamos a las horas que no podemos vender {{horas_no_posibles()|number}}hs el tiempo administrativo {{horas_admin()|number}} y obtenemos el total de horas no vendibles: <strong>{{horas_no_vendibles()|number}}hs</strong></p>
             
             <p>Con unos gastos fijos mensuales de <input type="text" ng-model="fijos_mensuales"> entonces al año gastarás {{fijos_anuales() | currency}}.</p>
 
             <p>Sumamos el costo de los fijos {{fijos_anuales() | currency}} + costo de las horas no vendibles {{costo_no_vendibles() | currency}}, tenemos un costo extra de <strong>{{costo_extra_anual() | currency}}</strong> </p>
 
-            <p>Calculamos las horas efectivas restando las {{horas_posibles()}}hs posibles menos {{horas_no_posibles()}}hs no posibles, lo que es igual a <strong>{{horas_efectivas()}}hs efectivas de trabajo.</strong> 
+            <p>Calculamos las horas efectivas restando las {{horas_posibles()|number}}hs posibles menos {{horas_no_posibles()|number}}hs no posibles, lo que es igual a <strong>{{horas_efectivas()|number}}hs efectivas de trabajo.</strong> 
 
-            <p>A las horas efectivas hay que restar las horas administrativas {{horas_admin()}}hs para obtener el total de horas de diseño que podemos vender: <strong>{{horas_vendibles()}}hs </strong></p>
+            <p>A las horas efectivas hay que restar las horas administrativas {{horas_admin()|number}}hs para obtener el total de horas de diseño que podemos vender: <strong>{{horas_vendibles()|number}}hs </strong></p>
             
-            <p>Multiplicamos las horas vendibles {{horas_vendibles()}} por el costo básico de hora {{costo_basico() | currency }} y estimamos <strong>nuestra ganancia anual {{ganancia_anual() | currency}}.</strong></p>
+            <p>Multiplicamos las horas vendibles {{horas_vendibles()|number}} por el costo básico de hora {{costo_basico() | currency }} y estimamos <strong>nuestra ganancia anual {{ganancia_anual() | currency}}.</strong></p>
 
-            <p>Tomamos nuestra ganancia {{ganancia_anual() | currency}} y la dividimos entre el costo extra anual {{costo_extra_anual() | currency}} y encontramos el <strong>porcentaje de rentabilidad: {{porcentaje_rentabilidad()}}%</strong></p>
+            <p>Tomamos nuestra ganancia {{ganancia_anual() | currency}} y la dividimos entre el costo extra anual {{costo_extra_anual() | currency}} y encontramos el <strong>porcentaje de rentabilidad: {{porcentaje_rentabilidad()|number}}%</strong></p>
 
             <p>Para cubrir nuestros costo extra aplicamos el porcentaje de rentabilidad a nuestro costo básico: {{porcentaje_rentabilidad_pesos() | currency}} </p>
 
@@ -87,7 +87,7 @@
 
             <h2>Hora de diseño: {{hora_diseno()|currency}}</h2>
 
-            <p>Al año puedes vender {{horas_vendibles()}}hs por lo que recibirías {{venta_anual() | currency}} que dividido en en los doce meses representa una venta mensual {{venta_mensual() | currency}} </p>
+            <p>Al año puedes vender {{horas_vendibles()|number}}hs por lo que recibirías {{venta_anual() | currency}} que dividido en en los doce meses representa una venta mensual {{venta_mensual() | currency}} </p>
         </div>  
         </section>
     </body>

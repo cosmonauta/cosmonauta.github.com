@@ -2,19 +2,19 @@ var CalcApp = angular.module('CalcApp', ['ui']);
 
 
 CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
-  $scope.salario_mensual_promedio = 0;
+  $scope.salario_mensual_promedio = null;
   $scope.horas = 8;
   $scope.dias = 5;
   $scope.semanas = 52;
   $scope.meses = 12;
   $scope.aguinaldo = 0.5;
-  $scope.feriados = 0;
-  $scope.vacaciones = 0;
+  $scope.feriados = null;
+  $scope.vacaciones = null;
   $scope.prima = 0.25;
-  $scope.incapacidad = 0;
-  $scope.tiempo_admin = 0;
-  $scope.fijos_mensuales = 0;
-  $scope.porcentaje_utilidad = 0;
+  $scope.incapacidad = null;
+  $scope.tiempo_admin = null;
+  $scope.fijos_mensuales = null;
+  $scope.porcentaje_utilidad = null;
 
   $scope.salario_anual = function(){
     return $scope.salario_mensual_promedio * ($scope.meses + $scope.aguinaldo);
