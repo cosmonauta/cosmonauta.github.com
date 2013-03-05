@@ -13,8 +13,11 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
   $scope.prima = 0.25;
   $scope.incapacidad = null;
   $scope.tiempo_admin = null;
-  $scope.fijos_mensuales = null;
   $scope.porcentaje_utilidad = null;
+  $scope.renta_mensual = null;
+  $scope.servicios_mensuales = null;
+  $scope.papeleria_mensual = null;
+  $scope.otros_mensuales = null;
 
   $scope.salario_anual = function(){
     return $scope.salario_mensual_promedio * ($scope.meses + $scope.aguinaldo);
@@ -59,8 +62,12 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
     return $scope.horas_no_posibles() + $scope.horas_admin();
   };
 
+  $scope.fijos_mensuales = function(){
+    return $scope.renta_mensual + $scope.servicios_mensuales + $scope.papeleria_mensual + $scope.otros_mensuales;
+  };
+
   $scope.fijos_anuales = function(){
-    return $scope.fijos_mensuales * $scope.meses;
+    return $scope.fijos_mensuales() * $scope.meses;
   };
 
   $scope.costo_no_vendibles = function(){
@@ -81,7 +88,7 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
 
   $scope.porcentaje_rentabilidad_pesos = function(){
     return $scope.costo_basico() * $scope.porcentaje_rentabilidad() / 100;
-  }
+  };
 
   $scope.hora_justa = function(){
     return $scope.costo_basico() + ($scope.costo_basico() * $scope.porcentaje_rentabilidad() / 100);

@@ -12,34 +12,34 @@
 	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
 
 	<!-- The 1140px Grid - http://cssgrid.net/ -->
-	<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../css/1140.css" type="text/css" media="screen" />
 	
 	<!-- Your styles -->
-	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../css/styles.css" type="text/css" media="screen" />
 	
 	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
-	<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+	<script type="text/javascript" src="../js/vendor/css3-mediaqueries.js"></script>
     
     <!-- Loading Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
-    <link href="css/flat-ui.css" rel="stylesheet">
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <link href="../css/flat-ui.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.ico">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
     <![endif]-->
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-        <script type="text/javascript" src="../js/vendor/angular-ui.min.js"></script>
-        <script type="text/javascript" src="../js/vendor/angular-ui-ieshiv.min.js"></script>
-        <script src="../js/preciohora.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="../js/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/angular-ui.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/angular-ui-ieshiv.min.js"></script>
+    <script src="../js/preciohora.js"></script>
 
 
 </head>
@@ -73,38 +73,39 @@
     </div>
     <div class="row preguntas">
         <div class="twocol">
-        	<img src="images/icosueldo.png" />
+        	<img src="../images/icosueldo.png" />
         	<p>¿Cuánto te gustaría ganar al mes?</p>
-        	<input type="text" value="" placeholder="Sueldo" class="inputcantidades" ng-model="salario_mensual_promedio">
+        	<input type="number" value="" placeholder="Sueldo" class="inputcantidades" ng-model="salario_mensual_promedio" min="0">
         </div>
         <div class="twocol">
-        	<img src="images/icosueldo.png" />
+        	<img src="../images/icosueldo.png" />
         	<p>¿Cuántos días libres quieres tener?</p>
-        	<input type="text" value="" placeholder="Vacaciones" class="inputcantidades" ng-model="vacaciones">
-            <input type="text" value="" placeholder="Días festivos" class="inputcantidades" ng-model="incapacidad">
+        	<input type="number" value="" placeholder="Vacaciones" class="inputcantidades" ng-model="vacaciones" min="0">
+            <input type="number" value="" placeholder="Días festivos" class="inputcantidades" ng-model="incapacidad" min="0">
         </div>
         <div class="twocol">
-        	<img src="images/icosueldo.png" />
+        	<img src="../images/icosueldo.png" />
         	<p>¿Qué porcentaje de tu tiempo utilizas en juntas, cotizaciones, etc.?</p>
-        	<input type="text" value="" placeholder="Administración" class="inputcantidades" ng-model="tiempo_admin">
+        	<input type="number" value="" placeholder="Administración" class="inputcantidades" ng-model="tiempo_admin" min="0">
         </div>
         <div class="twocol">
-        	<img src="images/icosueldo.png" />
+        	<img src="../images/icosueldo.png" />
         	<p>A veces nos enfermamos, ¿cuántos días por enfermedad prevés tomar?</p>
-        	<input type="text" value="" placeholder="Días Incapacidad" class="inputcantidades">
+        	<input type="number" value="" placeholder="Días Incapacidad" class="inputcantidades" min="0">
         </div>
         <div class="twocol">
-        	<img src="images/icosueldo.png" />
+        	<img src="../images/icosueldo.png" />
         	<p>¿Cuáles son tus gastos fijos?</p>
-        	<input type="text" value="" placeholder="Renta" class="inputcantidades" ng-model="fijos_mensuales">
-            <input type="text" value="" placeholder="Servicios" class="inputcantidades">
-            <input type="text" value="" placeholder="Papelería" class="inputcantidades">
-            <input type="text" value="" placeholder="Otros" class="inputcantidades">
+        	<input type="number" value="" placeholder="Renta" class="inputcantidades" ng-model="renta_mensual" min="0">
+            <input type="number" value="" placeholder="Servicios" class="inputcantidades" ng-model="servicios_mensuales" min="0">
+            <input type="number" value="" placeholder="Papelería" class="inputcantidades" ng-model="papeleria_mensual" min="0">
+            <input type="number" value="" placeholder="Otros" class="inputcantidades" ng-model="otros_mensuales" min="0">
+            <p><strong>Total:</strong>{{fijos_mensuales()}}</p>
         </div>
         <div class="twocol last">
-        	<img src="images/icosueldo.png" />
+        	<img src="../images/icosueldo.png" />
         	<p>Tu trabajo es muy valioso, ¿qué porcentaje mereces de ganancia?</p>
-        	<input type="text" value="" placeholder="Ganancia" class="inputcantidades" ng-model="porcentaje_utilidad">
+        	<input type="number" value="" placeholder="Ganancia" class="inputcantidades" ng-model="porcentaje_utilidad" min="0">
         </div>
     </div>
     
