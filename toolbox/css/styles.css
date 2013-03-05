@@ -1,0 +1,81 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+	body {
+		text-align:center;
+	}
+	
+	.inputcantidades{
+		width:100%
+	}
+	
+	.firstrow{
+		margin-top:20px;
+		margin-bottom:20px;
+	}
+	
+	.preguntas p{
+		height:75px;
+		}
+		
+	.fraseprecio, .frasepreciomensual{
+		font-size:30px;
+		text-align:right;
+	}
+	
+	.preciohora{
+		font-size:100px;
+		font-weight:bold;
+		text-align:right;
+	}
+	
+	p.preciohora, p.fraseprecio{
+		margin:0;
+	}
+	
+	.frasepreciomensual{
+		text-align:left;
+		font-size:25px;
+		}
+	.frasepreciomensual .preciomensual{
+		font-size:45px;
+		font-weight:bold;
+	}
+	
+	.preciorow{
+		margin-top:20px;
+	}
+	
+	body footer{ margin-top:30px;
+	padding:10px 0;}
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+		
+	}
+	
+	.preguntas p{
+		height:auto;
+		}
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
