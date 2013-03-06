@@ -81,17 +81,17 @@
         	<img src="../images/icosueldo.png" />
         	<p>¿Cuántos días libres quieres tener?</p>
         	<input type="number" value="" placeholder="Vacaciones" class="inputcantidades" ng-model="vacaciones" min="0">
-            <input type="number" value="" placeholder="Días festivos" class="inputcantidades" ng-model="incapacidad" min="0">
+            <input type="number" value="" placeholder="Días festivos" class="inputcantidades" ng-model="feriados" min="0">
+        </div>
+        <div class="twocol">
+            <img src="../images/icosueldo.png" />
+            <p>A veces nos enfermamos, ¿cuántos días por enfermedad prevés tomar?</p>
+            <input type="number" value="" placeholder="Días Incapacidad" class="inputcantidades" ng-model="incapacidad" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icosueldo.png" />
         	<p>¿Qué porcentaje de tu tiempo utilizas en juntas, cotizaciones, etc.?</p>
         	<input type="number" value="" placeholder="Administración" class="inputcantidades" ng-model="tiempo_admin" min="0">
-        </div>
-        <div class="twocol">
-        	<img src="../images/icosueldo.png" />
-        	<p>A veces nos enfermamos, ¿cuántos días por enfermedad prevés tomar?</p>
-        	<input type="number" value="" placeholder="Días Incapacidad" class="inputcantidades" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icosueldo.png" />
@@ -119,6 +119,64 @@
         <div class="fourcol last">
         	<p class="frasepreciomensual">Necesitas vender <span class="preciomensual">{{venta_mensual() | currency}}</span> para ser rentable</p>
             <p>Ve todo el procedimiento <a href="">aquí</a></p>
+        </div>
+    </div>
+
+    <div class="row explicacionrow"> 
+        <div class="tencol">
+            <p>Para calcular el precio por hora para un salario de: {{salario_mensual_promedio | currency}} hacemos lo siguiente:</p>
+            <ol>
+                <li>
+                    <p>Calculamos tu salario anual:</p>
+                    <p>Salario mensual × 12.5 meses (<small>{{meses | number}} meses + {{aguinaldo * 30 | number}} días de aguinaldo.</small>)</p>
+                    <p>{{salario_mensual_promedio | currency}} × 12.5 = <strong>{{salario_anual() | currency}}</strong></p> 
+
+
+                </li>
+                <li>
+                    <p>Encontramos tu costo básico por hora:</p>
+                    <p>Salario anual ÷ {{horas_posibles() | number}} horas posibles (<small>{{horas | number}} horas × {{dias | number}} días × {{semanas | number}} semanas</small>)</p>
+                    <p>{{salario_anual()| currency}} ÷ {{horas_posibles()| number}} = <strong>{{costo_basico() | currency}}</strong></p>
+                </li>
+                <li>
+                    <p>Sumamos el costo de las horas que no trabajarás:</p>
+                    <p>{{feriados | number}} días feriados × {{horas | number}} hs. = {{horas_feriados() | number}} hs. +</p>
+                    <p>{{vacaciones | number}} días de vacaciones × {{horas | number}} = {{horas_vacaciones() | number}} hs. + </p>
+                    <p>Prima vacacional (<small>Calculada al {{prima * 100}}%</small>) {{horas_prima() | number}} hs. + </p>
+                    <p>{{incapacidad | number}} días de incapacidad × {{horas | number}} hs. = {{horas_incapacidad() | number}} hs.</p>
+                    <p><strong>{{horas_no_posibles() | number}} hs. × {{costo_basico() | currency}} de costo básico = {{costo_no_posibles() | currency}}</strong></p>
+                </li>
+                <li>
+                    <p>Calculamos el costo del tiempo que dedicas a cotizaciones y juntas (tiempo administrativo):</p>
+                    <p>{{tiempo_admin | number}}% ({{horas_posibles() | number}} hs. posibles - {{horas_no_posibles() | number}} horas que no trabajarás) × {{costo_basico() | currency}} costo básico.</p>
+                    <p><strong>{{tiempo_admin | number}}% × {{horas_efectivas() | number}} hs. × {{costo_basico() | currency}} = {{costo_admin() | currency}}</strong></p>
+                </li>
+                <li>
+                    <p>Calculamos el total de tus gastos fijos:</p>
+                    <p>Renta mensual: {{renta_mensual | currency}} +</p>
+                    <p>Servicios mensuales: {{servicios_mensuales | currency }} +</p>
+                    <p>Papelería mensual: {{papeleria_mensual | currency}} +</p>
+                    <p>Otros gastos fijos mensuales: {{otros_mensuales | currency}}</p>
+                    <p>Gastos fijos mensuales {{fijos_mensuales() | currency}} × {{meses | number}} meses = <strong>{{fijos_anuales()| currency}} fijos anuales</strong></p>  
+                </li>
+                <li>
+                    <p>Sumamos el costo de las horas que no trabajas más el costo del tiempo de administración y el de los gastos fijos para obtener el costo extra anual por tu trabajo.</p>
+                    <p>{{costo_no_posibles() | currency}} + {{costo_admin() | currency}} + {{fijos_anuales()| currency}} = <strong>{{costo_extra_anual() | currency}} de costo extra anual</strong></p>
+                </li>
+                <li>
+                    <p>Ahora calculamos lo que ganarás al año:</p>
+                    <p>{{horas_posibles() | number}} hs. posibles al año - {{horas_no_posibles() | number}} hs. de vacaciones, feriado e incapacidad - {{horas_admin() | number}} hs. de juntas cotizaciones × {{costo_basico() | currency}} costo básico</p>
+                    <p><strong>{{horas_vendibles() | number}} horas de diseño × {{costo_basico() | currency }} = {{ganancia_anual() | currency}} de ganancia anual.</strong></p>
+                </li>
+                <li>
+                    <p>Calculamos el porcentaje de rentabilidad dividiendo el costo entre la ganancia:</p>
+                    <p>{{costo_extra_anual() | currency}} ÷ {{ganancia_anual() | currency}} = {{porcentaje_rentabilidad() | number}}%</p>
+                </li>
+                <li>
+                    <p>Por último para calcular la hora de diseño sumamos el porcentaje de rentabilidad y el porcentaje de utilidad a nuestro costo básico:</p>
+                    <p>{{costo_basico()| currency}} + {{costo_basico()| currency}} × {{porcentaje_rentabilidad() | number}}%  + {{costo_basico() | currency}} × {{porcentaje_utilidad | number}}% = <strong>{{hora_diseno() | currency}} por hora de diseño.</strong> </p>
+                </li>
+            </ol>
         </div>
     </div>
     

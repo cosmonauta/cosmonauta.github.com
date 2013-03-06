@@ -46,6 +46,10 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
       $scope.horas_incapacidad();
     };
 
+  $scope.costo_no_posibles = function(){
+    return $scope.horas_no_posibles() * $scope.costo_basico();
+  };
+
   $scope.horas_efectivas = function(){
     return $scope.horas_posibles() - $scope.horas_no_posibles();
   };
@@ -56,6 +60,10 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
 
   $scope.horas_vendibles = function(){
     return $scope.horas_efectivas() - $scope.horas_admin();
+  };
+
+  $scope.costo_admin = function(){
+    return $scope.horas_admin() * $scope.costo_basico();
   };
 
   $scope.horas_no_vendibles = function(){
