@@ -70,20 +70,29 @@
 
 
 
-<img src="../images/cosmonauta-fondo.png" class="fondocosmonauta" />
+<!--<img src="../images/cosmonauta-fondo.png" class="fondocosmonauta" />-->
 
 <div class="container" ng-controller="calcCtrl">
 
 	<div class="row firstrow">
-    	<div class="twocol">
+        <div class="twocol">
+        	<h1><a href="http://cosmonauta.mx"><img src="../images/cosmonauta-logo.png" title="Cosmonauta - Digital by Default" alt="Cosmonauta - Digital by Default"/></a></h1>
         </div>
-        <div class="eightcol">
+        <div class="tencol last">
         	<h2>¿Sabes cuánto cobrar por una hora de tus servicios?</h2>
 			<h3>Responde 5 preguntas y descúbrelo.</h3>
         </div>
-        <div class="twocol last">
-        </div>
     </div>
+    
+    
+  <!--  <div class="row logorow">
+    	<div class="fivecol">
+        </div>
+        <div class="twocol">
+        	<h1><a href="http://cosmonauta.mx"><img src="../images/cosmonauta-logo.png" title="Cosmonauta - Digital by Default" alt="Cosmonauta - Digital by Default"/></a></h1>
+        </div>
+    </div>-->
+    
     <div class="row preguntas">
         <div class="twocol">
         	<img src="../images/icosueldo.png" />
@@ -113,7 +122,7 @@
             <input type="number" value="" placeholder="Servicios" class="inputcantidades" ng-model="servicios_mensuales" min="0">
             <input type="number" value="" placeholder="Papelería" class="inputcantidades" ng-model="papeleria_mensual" min="0">
             <input type="number" value="" placeholder="Otros" class="inputcantidades" ng-model="otros_mensuales" min="0">
-            <p><strong>Total:</strong>{{fijos_mensuales()}}</p>
+            <p class="ptotal"><strong>Total:</strong>{{fijos_mensuales()}}</p>
         </div>
         <div class="twocol last">
         	<img src="../images/icoganancia.png" />

@@ -54,12 +54,14 @@
 	}
 	
 	body footer{ margin-top:30px;
-	padding:10px 0;}
+	padding:10px 0;
+	clear:both;}
 	
 	.explicacionrow{
 		text-align:left;
 		margin-top:75px;
 		clear:both;
+		display:none;
 		}
 		
 	.explicacionrow li{
@@ -70,6 +72,14 @@
 		bottom:10px;
 		left:10px;
 		z-index:-1;
+	}
+	
+	.logorow{
+		margin-bottom:20px;
+	}
+	
+	.preguntas p.ptotal{
+		height:auto;
 	}
 	
 /* ============================= */
@@ -85,6 +95,7 @@
 	.preguntas p{
 		height:auto;
 		}
+		
 
 }
 
