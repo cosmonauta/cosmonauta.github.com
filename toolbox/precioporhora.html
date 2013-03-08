@@ -57,6 +57,19 @@
 
 
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=480895755268725";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<img src="../images/cosmonauta-fondo.png" class="fondocosmonauta" />
+
 <div class="container" ng-controller="calcCtrl">
 
 	<div class="row firstrow">
@@ -76,23 +89,23 @@
         	<input type="number" value="" placeholder="Sueldo" class="inputcantidades" ng-model="salario_mensual_promedio" min="0">
         </div>
         <div class="twocol">
-        	<img src="../images/icosueldo.png" />
+        	<img src="../images/icovacaciones.png" />
         	<p>¿Cuántos días libres quieres tener?</p>
         	<input type="number" value="" placeholder="Vacaciones" class="inputcantidades" ng-model="vacaciones" min="0">
             <input type="number" value="" placeholder="Días festivos" class="inputcantidades" ng-model="feriados" min="0">
         </div>
         <div class="twocol">
-            <img src="../images/icosueldo.png" />
+            <img src="../images/icoincapacidad.png" />
             <p>A veces nos enfermamos, ¿cuántos días por enfermedad prevés tomar?</p>
             <input type="number" value="" placeholder="Días Incapacidad" class="inputcantidades" ng-model="incapacidad" min="0">
         </div>
         <div class="twocol">
-        	<img src="../images/icosueldo.png" />
+        	<img src="../images/icoadministracion.png" />
         	<p>¿Qué porcentaje de tu tiempo utilizas en juntas, cotizaciones, etc.?</p>
         	<input type="number" value="" placeholder="Administración" class="inputcantidades" ng-model="tiempo_admin" min="0">
         </div>
         <div class="twocol">
-        	<img src="../images/icosueldo.png" />
+        	<img src="../images/icoservicios.png" />
         	<p>¿Cuáles son tus gastos fijos?</p>
         	<input type="number" value="" placeholder="Renta" class="inputcantidades" ng-model="renta_mensual" min="0">
             <input type="number" value="" placeholder="Servicios" class="inputcantidades" ng-model="servicios_mensuales" min="0">
@@ -101,16 +114,14 @@
             <p><strong>Total:</strong>{{fijos_mensuales()}}</p>
         </div>
         <div class="twocol last">
-        	<img src="../images/icosueldo.png" />
+        	<img src="../images/icoganancia.png" />
         	<p>Tu trabajo es muy valioso, ¿qué porcentaje mereces de ganancia?</p>
         	<input type="number" value="" placeholder="Ganancia" class="inputcantidades" ng-model="porcentaje_utilidad" min="0">
         </div>
     </div>
     
     <div class="row preciorow">
-		<div class="twocol">
-        </div>
-        <div class="sixcol">
+        <div class="fourcol">
 	        <p class="fraseprecio">Tu hora de trabajo vale:</p>
         	<p id="elPrecio" class="preciohora">{{hora_diseno | currency}}</p>
 
@@ -119,9 +130,38 @@
         	<p class="frasepreciomensual">Necesitas vender <span class="preciomensual">{{venta_mensual() | currency}}</span> para ser rentable</p>
             <p>Ve todo el procedimiento <a id="saberMas" href="">aquí</a></p>
         </div>
+        <div class="fourcol last">
+        	<a href="https://twitter.com/share" class="twitter-share-button" data-text="¿Sabes cuánto cobrar? Descúbrelo #HoraJusta" data-via="CosmonautaMX" data-lang="es" data-related="CosmonautaMX" data-hashtags="Cosmonauta">Twittear</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+			<div style="clear:both; height:20px;"></div>
+
+			<div class="fb-like" data-href="http://cosmonauta.mx/toolbox/precioporhora.html" data-send="true" data-width="300" data-show-faces="true" data-action="recommend"></div>
+            
+            
+            <div style="clear:both; height:20px;"></div>
+            
+            
+            <!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'es-419'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+            
+
+        </div>
     </div>
 
     <div class="row explicacionrow"> 
+    	<div class="onecol"></div>
         <div class="tencol">
             <p>Para calcular el precio por hora para un salario de: {{salario_mensual_promedio | currency}} hacemos lo siguiente:</p>
             <ol>
@@ -188,7 +228,7 @@
     	<div class="twocol">
         </div>
 		<div class="eightcol">
-            <p>Desarrollado por <a href="#">Cosmonauta.MX</a>, basado en los calculos de estas <a href="#">dos señoras</a></p>
+            <p>Desarrollado por <a href="http://cosmonauta.mx#contacto-nav">Cosmonauta.MX</a>, basado en los cálculos de <a href="http://es.scribd.com/doc/7739733/Calculo-de-Costo-Por-Hora-de-Trabajo-de-Diseno" target="_blank">Silvia Oropeza y Josefina Reséndiz</a></p>
           </div>
     </div>
 </div>
