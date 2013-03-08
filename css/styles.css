@@ -4,6 +4,7 @@
 
 	body {
 		text-align:center;
+		background: #eaeaea url(../images/bgtextura.jpg) repeat fixed;
 	}
 	
 	.inputcantidades{
@@ -53,7 +54,22 @@
 	
 	body footer{ margin-top:30px;
 	padding:10px 0;}
-
+	
+	.explicacionrow{
+		text-align:left;
+		margin-top:50px;
+		}
+		
+	.explicacionrow li{
+		margin:40px 0;
+		}
+	.fondocosmonauta{
+		position:absolute;
+		bottom:10px;
+		left:10px;
+		z-index:-1;
+	}
+	
 /* ============================= */
 /* ! Layout for mobile version   */
 /* ============================= */
