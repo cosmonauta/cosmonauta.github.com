@@ -50,6 +50,7 @@
 	
 	.preciorow{
 		margin-top:20px;
+		overflow: visible;
 	}
 	
 	body footer{ margin-top:30px;
@@ -57,7 +58,8 @@
 	
 	.explicacionrow{
 		text-align:left;
-		margin-top:50px;
+		margin-top:75px;
+		clear:both;
 		}
 		
 	.explicacionrow li{
