@@ -40,8 +40,6 @@
     <script type="text/javascript" src="../js/vendor/angular-ui.min.js"></script>
     <script type="text/javascript" src="../js/vendor/angular-ui-ieshiv.min.js"></script>
     <script src="../js/preciohora.js"></script>
-
-
 </head>
 
 
@@ -114,11 +112,12 @@
         </div>
         <div class="sixcol">
 	        <p class="fraseprecio">Tu hora de trabajo vale:</p>
-        	<p class="preciohora">{{hora_diseno()|currency}}</p>
+        	<p id="elPrecio" class="preciohora">{{hora_diseno | currency}}</p>
+
         </div>
         <div class="fourcol last">
         	<p class="frasepreciomensual">Necesitas vender <span class="preciomensual">{{venta_mensual() | currency}}</span> para ser rentable</p>
-            <p>Ve todo el procedimiento <a href="">aquí</a></p>
+            <p>Ve todo el procedimiento <a id="saberMas" href="">aquí</a></p>
         </div>
     </div>
 
@@ -174,7 +173,7 @@
                 </li>
                 <li>
                     <p>Por último para calcular la hora de diseño sumamos el porcentaje de rentabilidad y el porcentaje de utilidad a nuestro costo básico:</p>
-                    <p>{{costo_basico()| currency}} + {{costo_basico()| currency}} × {{porcentaje_rentabilidad() | number}}%  + {{costo_basico() | currency}} × {{porcentaje_utilidad | number}}% = <strong>{{hora_diseno() | currency}} por hora de diseño.</strong> </p>
+                    <p>{{costo_basico()| currency}} + {{costo_basico()| currency}} × {{porcentaje_rentabilidad() | number}}%  + {{costo_basico() | currency}} × {{porcentaje_utilidad | number}}% = <strong>{{hora_diseno | currency}} por hora de diseño.</strong> </p>
                 </li>
             </ol>
         </div>

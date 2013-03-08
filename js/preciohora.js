@@ -18,6 +18,7 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
   $scope.servicios_mensuales = null;
   $scope.papeleria_mensual = null;
   $scope.otros_mensuales = null;
+  $scope.hora_diseno = 0.0;
 
   $scope.salario_anual = function(){
     return $scope.salario_mensual_promedio * ($scope.meses + $scope.aguinaldo);
@@ -91,6 +92,7 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
   };
 
   $scope.porcentaje_rentabilidad = function(){
+    if($scope.ganancia_anual() == 0){return 0;}
     return $scope.costo_extra_anual() * 100 / $scope.ganancia_anual();
   };
 
@@ -99,22 +101,37 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
   };
 
   $scope.hora_justa = function(){
-    return $scope.costo_basico() + ($scope.costo_basico() * $scope.porcentaje_rentabilidad() / 100);
+    //return $scope.costo_basico() + ($scope.costo_basico() * $scope.porcentaje_rentabilidad() / 100);
+    return $scope.costo_basico() + $scope.porcentaje_rentabilidad_pesos();
   };
 
   $scope.utilidad = function(){
     return $scope.hora_justa() * $scope.porcentaje_utilidad / 100;
   };
 
-  $scope.hora_diseno = function(){
-    return $scope.hora_justa() + $scope.utilidad();
+  $scope.h_d = function(){
+    $scope.hora_diseno = $scope.hora_justa() + $scope.utilidad();
+    if(!$scope.hora_diseno){return 0;}
+    return $scope.hora_diseno;
   };
 
   $scope.venta_anual = function(){
-    return $scope.hora_diseno() * $scope.horas_vendibles();
+    return $scope.h_d() * $scope.horas_vendibles();
   };
 
   $scope.venta_mensual = function(){
     return $scope.venta_anual() / $scope.meses;
   };
+});
+
+$(function(){
+  $("input").change(function(event){
+    mixpanel.track("cambio en " + $(event.target).attr("ng-model"));
+  });
+
+  $("#saberMas").click(function(event){
+    $(".explicacionrow").toggle();
+    mixpanel.track("Click en saber más");
+  });
+
 });
