@@ -82,6 +82,15 @@
 		height:auto;
 	}
 	
+	.socialnets{ display:block; width: 120px; margin: 0 auto;}
+	.cosmotwitter{ background:url(../images/twitter.png) no-repeat top center;} 
+	.cosmofacebook{ background:url(../images/facebook.png) no-repeat top center;} 
+	.cosmogoogleplus{ background:url(../images/googleplus.png) no-repeat top center;} 
+	
+	.cosmotwitter, .cosmofacebook, .cosmogoogleplus{display:block; width:20px; height:20px; float:left; margin-right:20px;}
+	.cosmotwitter:hover, .cosmofacebook:hover, .cosmogoogleplus:hover{ background-position:bottom center;}
+	.cosmotwitter span, .cosmofacebook span, .cosmogoogleplus span{display:none;}
+	
 /* ============================= */
 /* ! Layout for mobile version   */
 /* ============================= */
