@@ -4,19 +4,25 @@ var CalcApp = angular.module('CalcApp', ['ui']);
 
 CalcApp.value('ui.config', {
    // The ui-jq directive namespace
-   jq: {
-      // The Tooltip namespace
-      tooltip: {
-         // Tooltip options. This object will be used as the defaults
-         placement: 'top',
-         trigger: 'focus',
-         delay: {show:500, hide:20},
-      }
+  jq: {
+    // The Tooltip namespace
+    tooltip: {
+        // Tooltip options. This object will be used as the defaults
+       placement: 'top',
+       trigger: 'focus',
+       delay: {show:500, hide:20},
+     }
    }
 });
 
-CalcApp.factory('Data', function(){
-  return {
+CalcApp.value('localStorage', window.localStorage);
+
+CalcApp.factory('Data', function($rootScope, localStorage){
+
+  var LOCAL_STORAGE_ID = 'caData',
+      dataString = localStorage[LOCAL_STORAGE_ID];
+
+  var data = dataString ? JSON.parse(dataString) : {
     salario: null,
     diasFeriados: null,
     diasVacaciones: null,
@@ -28,6 +34,12 @@ CalcApp.factory('Data', function(){
     papeleriaMensual: null,
     otrosMensual: null
   };
+
+  $rootScope.$watch(function() { return data; }, function() {
+    localStorage[LOCAL_STORAGE_ID] = JSON.stringify(data);
+  }, true);
+
+  return data;
 });
 
 CalcApp.factory('Config', function(){
