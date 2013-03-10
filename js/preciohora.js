@@ -149,3 +149,9 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope, Data, Config) {
     return data.ventaAnual() / conf.meses;
   };
 });
+
+$(function(){
+  $('#saberMas').click(function(event){
+    $('.explicacionrow').toggle();
+  });
+});
