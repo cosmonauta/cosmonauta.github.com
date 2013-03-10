@@ -1,137 +1,157 @@
+'use strict';
+
 var CalcApp = angular.module('CalcApp', ['ui']);
 
+CalcApp.value('ui.config', {
+   // The ui-jq directive namespace
+   jq: {
+      // The Tooltip namespace
+      tooltip: {
+         // Tooltip options. This object will be used as the defaults
+         placement: 'top',
+         trigger: 'focus',
+         delay: {show:500, hide:20},
+      }
+   }
+});
 
-CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope) {
-  $scope.salario_mensual_promedio = null;
-  $scope.horas = 8;
-  $scope.dias = 5;
-  $scope.semanas = 52;
-  $scope.meses = 12;
-  $scope.aguinaldo = 0.5;
-  $scope.feriados = null;
-  $scope.vacaciones = null;
-  $scope.prima = 0.25;
-  $scope.incapacidad = null;
-  $scope.tiempo_admin = null;
-  $scope.porcentaje_utilidad = null;
-  $scope.renta_mensual = null;
-  $scope.servicios_mensuales = null;
-  $scope.papeleria_mensual = null;
-  $scope.otros_mensuales = null;
-  $scope.hora_diseno = 0.0;
+CalcApp.factory('Data', function(){
+  return {
+    salario: null,
+    diasFeriados: null,
+    diasVacaciones: null,
+    diasIncapacidad: null,
+    porcentajeAdmin: null,
+    porcentajeUtilidad: null,
+    rentaMensual: null,
+    serviciosMensual: null,
+    papeleriaMensual: null,
+    otrosMensual: null
+  };
+});
 
-  $scope.salario_anual = function(){
-    return $scope.salario_mensual_promedio * ($scope.meses + $scope.aguinaldo);
+CalcApp.factory('Config', function(){
+  return {
+    horas: 8,
+    dias: 5,
+    semanas: 52,
+    meses: 12,
+    porcentajeAguinaldo: 0.5,
+    porcentajePrima: 0.25
+  };
+});
+
+CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope, Data, Config) {
+
+  var data = Data;
+  var conf = Config;
+
+  $scope.data = data;
+  $scope.conf = conf;
+
+  data.salarioAnual = function(){
+    return data.salario * (conf.meses + conf.porcentajeAguinaldo);
   };
 
-  $scope.costo_basico = function(){
-    return $scope.salario_anual() / $scope.horas_posibles();
+  data.costoBasico = function(){
+    return data.salarioAnual() / data.horasPosibles();
   };
 
-  $scope.horas_posibles = function(){
-    return $scope.horas * $scope.dias * $scope.semanas;
+  data.costoNoPosibles = function(){
+    return data.horasNoPosibles() * data.costoBasico();
   };
 
-  $scope.horas_feriados = function(){ return $scope.feriados * $scope.horas;};
+  data.costoAdmin = function(){
+    return data.horasAdmin() * data.costoBasico();
+  };
 
-  $scope.horas_vacaciones = function(){ return $scope.vacaciones * $scope.horas;};
-
-  $scope.horas_prima = function() { return $scope.horas_vacaciones() * $scope.prima;};
-
-  $scope.horas_incapacidad = function() { return $scope.incapacidad * $scope.horas;};
-
-  $scope.horas_no_posibles = function(){
-    return $scope.horas_feriados() +
-      $scope.horas_vacaciones() +
-      $scope.horas_prima() +
-      $scope.horas_incapacidad();
+  data.costoNoVendibles = function(){
+      return data.horasNoVendibles() * data.costoBasico();
     };
 
-  $scope.costo_no_posibles = function(){
-    return $scope.horas_no_posibles() * $scope.costo_basico();
+  data.costoExtraAnual = function(){
+    return data.fijosAnuales() + data.costoNoVendibles();
   };
 
-  $scope.horas_efectivas = function(){
-    return $scope.horas_posibles() - $scope.horas_no_posibles();
+  data.fijosMensuales = function(){
+    return data.rentaMensual + data.serviciosMensual + data.papeleriaMensual + data.otrosMensual;
   };
 
-  $scope.horas_admin = function(){
-    return $scope.horas_efectivas() * $scope.tiempo_admin / 100;
+  data.fijosAnuales = function(){
+    return data.fijosMensuales() * conf.meses;
   };
 
-  $scope.horas_vendibles = function(){
-    return $scope.horas_efectivas() - $scope.horas_admin();
+  data.gananciaAnual = function(){
+    return data.horasVendibles() * data.costoBasico();
   };
 
-  $scope.costo_admin = function(){
-    return $scope.horas_admin() * $scope.costo_basico();
+  data.horasEfectivas = function(){
+    return data.horasPosibles() - data.horasNoPosibles();
   };
 
-  $scope.horas_no_vendibles = function(){
-    return $scope.horas_no_posibles() + $scope.horas_admin();
+  data.horasAdmin = function(){
+    return data.horasEfectivas() * data.porcentajeAdmin / 100;
   };
 
-  $scope.fijos_mensuales = function(){
-    return $scope.renta_mensual + $scope.servicios_mensuales + $scope.papeleria_mensual + $scope.otros_mensuales;
+  data.horasPosibles = function(){
+    return conf.horas * conf.dias * conf.semanas;
   };
 
-  $scope.fijos_anuales = function(){
-    return $scope.fijos_mensuales() * $scope.meses;
+  data.horasNoPosibles = function(){
+    return data.horasFeriados() +
+      data.horasVacaciones() +
+      data.horasporcentajePrima() +
+      data.horasIncapacidad();
   };
 
-  $scope.costo_no_vendibles = function(){
-      return $scope.horas_no_vendibles() * $scope.costo_basico();
-    };
+  data.horasFeriados = function(){ return data.diasFeriados * conf.horas;};
 
-  $scope.costo_extra_anual = function(){
-    return $scope.fijos_anuales() + $scope.costo_no_vendibles();
+  data.horasVacaciones = function(){ return data.diasVacaciones * conf.horas;};
+
+  data.horasporcentajePrima = function() { return data.horasVacaciones() * conf.porcentajePrima;};
+
+  data.horasIncapacidad = function() { return data.diasIncapacidad * conf.horas;};
+
+  data.horasVendibles = function(){
+    return data.horasEfectivas() - data.horasAdmin();
   };
 
-  $scope.ganancia_anual = function(){
-    return $scope.horas_vendibles() * $scope.costo_basico();
+  data.horasNoVendibles = function(){
+    return data.horasNoPosibles() + data.horasAdmin();
   };
 
-  $scope.porcentaje_rentabilidad = function(){
-    if($scope.ganancia_anual() == 0){return 0;}
-    return $scope.costo_extra_anual() * 100 / $scope.ganancia_anual();
+  data.porcentajeRentabilidad = function(){
+    if(!data.gananciaAnual()){return 0;}
+    return data.costoExtraAnual() * 100 / data.gananciaAnual();
   };
 
-  $scope.porcentaje_rentabilidad_pesos = function(){
-    return $scope.costo_basico() * $scope.porcentaje_rentabilidad() / 100;
+  data.porcentajeRentabilidadPesos = function(){
+    return data.costoBasico() * data.porcentajeRentabilidad() / 100;
   };
 
-  $scope.hora_justa = function(){
-    //return $scope.costo_basico() + ($scope.costo_basico() * $scope.porcentaje_rentabilidad() / 100);
-    return $scope.costo_basico() + $scope.porcentaje_rentabilidad_pesos();
+  data.horaJusta = function(){
+    return data.costoBasico() + data.porcentajeRentabilidadPesos();
   };
 
-  $scope.utilidad = function(){
-    return $scope.hora_justa() * $scope.porcentaje_utilidad / 100;
+  data.horaDiseno = function(){
+    return data.horaJusta() + data.utilidad();
   };
 
-  $scope.h_d = function(){
-    $scope.hora_diseno = $scope.hora_justa() + $scope.utilidad();
-    if(!$scope.hora_diseno){return 0;}
-    return $scope.hora_diseno;
+  data.utilidad = function(){
+    return data.horaJusta() * data.porcentajeUtilidad / 100;
   };
 
-  $scope.venta_anual = function(){
-    return $scope.h_d() * $scope.horas_vendibles();
+  data.ventaAnual = function(){
+    return data.horaDiseno() * data.horasVendibles();
   };
 
-  $scope.venta_mensual = function(){
-    return $scope.venta_anual() / $scope.meses;
+  data.ventaMensual = function(){
+    return data.ventaAnual() / conf.meses;
   };
 });
 
 $(function(){
-  $("input").change(function(event){
-    mixpanel.track("cambio en " + $(event.target).attr("ng-model"));
+  $('#saberMas').click(function(event){
+    $('.explicacionrow').toggle();
   });
-
-  $("#saberMas").click(function(event){
-    $(".explicacionrow").toggle();
-    mixpanel.track("Click en saber más");
-  });
-
 });
