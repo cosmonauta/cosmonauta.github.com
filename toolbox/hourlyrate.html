@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Calculate Your Hourly Rate | Cosmonauta – Digital By Default</title>
+    <meta name="description" content="Hourly Rate Calculator">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- 1140px Grid styles for IE -->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
+
+	<!-- The 1140px Grid - http://cssgrid.net/ -->
+	<link rel="stylesheet" href="../css/1140.css" type="text/css" media="screen" />
+	
+	<!-- Your styles -->
+	<link rel="stylesheet" href="../css/styles.css" type="text/css" media="screen" />
+	
+	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+	<script type="text/javascript" src="../js/vendor/css3-mediaqueries.js"></script>
+    
+    <!-- Loading Bootstrap -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../css/flat-ui.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="..js/vendor/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="../js/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/angular-ui.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/angular-ui-ieshiv.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/preciohora.js"></script>
+</head>
+
+
+<body ng-app="CalcApp">
+
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-ZMWQ"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-ZMWQ');</script>
+        <!-- End Google Tag Manager -->
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=480895755268725";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<!--<img src="../images/cosmonauta-fondo.png" class="fondocosmonauta" />-->
+
+<div class="container" ng-controller="calcCtrl">
+
+	<div class="row firstrow">
+        <div class="twocol">
+        	<h1><a href="http://cosmonauta.mx"><img id="logo" src="../images/cosmonauta-logo.png" title="Cosmonauta - Digital by Default" alt="Cosmonauta - Digital by Default"/></a></h1>
+        </div>
+        <div class="tencol last">
+        	<h2>Do you know your price?</h2>
+			<h3>Answer these quesetions!</h3>
+        </div>
+    </div>
+    
+    <div class="row preguntas">
+        <div class="twocol">
+        	<img src="../images/icosueldo.png" />
+        	<p>How much do you want to get paid?</p>
+        	<input type="number" value="" placeholder="Monthly Wage" class="inputcantidades" ng-model="data.salario" min="0">
+        </div>
+        <div class="twocol">
+        	<img src="../images/icovacaciones.png" />
+        	<p>How many days offs do you take per year?</p>
+        	<input type="number" value="" placeholder="Vacations" class="inputcantidades" ng-model="data.diasVacaciones" min="0">
+            <input type="number" value="" placeholder="Holydays" class="inputcantidades" ng-model="data.diasFeriados" min="0">
+        </div>
+        <div class="twocol">
+            <img src="../images/icoincapacidad.png" />
+            <p>How many sick days do you take per year?</p>
+            <input type="number" value="" placeholder="Sick leave days" class="inputcantidades" ng-model="data.diasIncapacidad" min="0">
+        </div>
+        <div class="twocol">
+        	<img src="../images/icoadministracion.png" />
+        	<p>What percent of you time do you spend in business meetings and other related activities?</p>
+        	<input type="number" value="" placeholder="Administrative time" class="inputcantidades" ng-model="data.porcentajeAdmin" min="0">
+        </div>
+        <div class="twocol">
+        	<img src="../images/icoservicios.png" />
+        	<p>How much do you spend on equipment and tools?</p>
+        	<input type="number" value="" placeholder="Workspace" class="inputcantidades" ng-model="data.rentaMensual" min="0">
+            <input type="number" value="" placeholder="Services" class="inputcantidades" ng-model="data.serviciosMensual" min="0">
+            <input type="number" value="" placeholder="Stationery" class="inputcantidades" ng-model="data.papeleriaMensual" min="0">
+            <input type="number" value="" placeholder="Other Stuff" class="inputcantidades" ng-model="data.otrosMensual" min="0">
+            <p class="ptotal"><strong>Total:</strong>{{data.fijosMensuales()}}</p>
+        </div>
+        <div class="twocol last">
+        	<img src="../images/icoganancia.png" />
+        	<p>What's your profit margin? (percentage)</p>
+        	<input type="number" value="" placeholder="Profit" class="inputcantidades" ng-model="data.porcentajeUtilidad" min="0">
+        </div>
+    </div>
+    
+    <div class="row preciorow">
+        <div class="fourcol">
+	        <p class="fraseprecio">Your hourly rate is:</p>
+        	<p id="elPrecio" class="preciohora">{{data.horaDiseno() | currency}}</p>
+
+        </div>
+        <div class="fourcol last">
+        	<p class="frasepreciomensual">You should sell <span class="preciomensual">{{data.ventaMensual() | currency}}</span> a month to be profitable</p>
+        </div>
+        <div class="fourcol last">
+        	<a href="https://twitter.com/share" class="twitter-share-button" data-text="¿Sabes cuánto cobrar? Descúbrelo #HoraJusta" data-via="CosmonautaMX" data-lang="es" data-related="CosmonautaMX" data-hashtags="Cosmonauta">Twittear</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+			<div style="clear:both; height:20px;"></div>
+
+			<div class="fb-like" data-href="http://cosmonauta.mx/toolbox/precioporhora.html" data-send="true" data-width="300" data-show-faces="true" data-action="recommend"></div>
+            
+            
+            <div style="clear:both; height:20px;"></div>
+            
+            
+            <!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'es-419'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+            
+
+        </div>
+    </div>
+    
+</div> <!-- /container -->
+
+<footer>
+<div class="container">
+	<div class="row">
+    	<div class="twocol">
+        </div>
+		<div class="eightcol">
+            <p>Desarrollado por <a href="http://cosmonauta.mx#contacto-nav">Cosmonauta.MX</a>, basado en los cálculos de <a href="http://es.scribd.com/doc/7739733/Calculo-de-Costo-Por-Hora-de-Trabajo-de-Diseno" target="_blank">Silvia Oropeza y Josefina Reséndiz</a></p>
+            
+            <div class="socialnets"><a href="http://twitter.com/CosmonautaMX" class="cosmotwitter" target="_blank"><span>Twitter de Cosmonauta</span></a>
+            <a href="http://facebook.com/CosmonautaMX" class="cosmofacebook" target="_blank"><span>Facebook de Cosmonauta</span></a>
+            <a href="https://plus.google.com/u/0/b/109687930989783564776/109687930989783564776/posts" class="cosmogoogleplus" target="_blank"><span>Google+ de Cosmonauta</span></a>
+            </div>
+            
+          </div>
+    </div>
+</div>
+</footer>
+    <!-- Load JS here for greater good =============================-->
+<!--    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="js/jquery.dropkick-1.0.0.js"></script>
+    <script src="js/custom_checkbox_and_radio.js"></script>
+    <script src="js/custom_radio.js"></script>
+    <script src="js/jquery.tagsinput.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
+    <script src="js/application.js"></script>-->
+    <!--[if lt IE 8]>
+      <script src="js/icon-font-ie7.js"></script>
+      <script src="js/icon-font-ie7-24.js"></script>
+    <![endif]-->
+
+</body>
+
+</html>
