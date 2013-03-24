@@ -3,8 +3,8 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Calculadora de precio de hora de trabajo | Cosmonauta – Digital By Default</title>
-    <meta name="description" content="Calculadora de precio de hora de trabajo">
+	<title>Quanto cobrar por uma hora dos seus serviços? | Cosmonauta – Digital By Default</title>
+    <meta name="description" content="Quanto cobrar por uma hora dos seus serviços?">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
@@ -72,7 +72,8 @@
 <!--<img src="../images/cosmonauta-fondo.png" class="fondocosmonauta" />-->
 
 
-       <div class="ribbon-wrapper-green"><div class="ribbon-green"><a href="hourlyrate.html" title="Calculate Your Hourly Rate">English</a> – <a href="quantocobrar.html">Português</a></div></div>
+       <div class="ribbon-wrapper-green"><div class="ribbon-green"><a href="hourlyrate.html" title="Calculate Your Hourly Rate">English</a> – <a href="precioporhora.html">Español</a></div></div>
+
 
 
 <div class="container" ng-controller="calcCtrl">
@@ -82,58 +83,58 @@
         	<h1><a href="http://cosmonauta.mx"><img id="logo" src="../images/cosmonauta-logo.png" title="Cosmonauta - Digital by Default" alt="Cosmonauta - Digital by Default"/></a></h1>
         </div>
         <div class="tencol last">
-        	<h2>¿Sabes cuánto cobrar por una hora de tus servicios?</h2>
-			<h3>Responde 6 preguntas y descúbrelo.</h3>
+        	<h2>Você sabe o quanto cobrar por uma hora dos seus serviços?</h2>
+			<h3>Responda 6 perguntas e saiba agora</h3>
         </div>
     </div>
     
     <div class="row preguntas">
         <div class="twocol">
         	<img src="../images/icosueldo.png" />
-        	<p>¿Cuánto te gustaría ganar al mes?</p>
-        	<input type="number" value="" placeholder="Sueldo" class="inputcantidades" ng-model="data.salario" min="0">
+        	<p>O quanto você gostaria de ganhar ao mês?</p>
+        	<input type="number" value="" placeholder="Salário" class="inputcantidades" ng-model="data.salario" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icovacaciones.png" />
-        	<p>Además de los fines de semana, ¿cuántos días libres quieres tener al año?</p>
-        	<input type="number" value="" placeholder="Vacaciones" class="inputcantidades" ng-model="data.diasVacaciones" min="0" title="En México, se parte de 6 días y se agregan 2 por año trabajado" ui-jq="tooltip">
-            <input type="number" value="" placeholder="Días festivos" class="inputcantidades" ng-model="data.diasFeriados" min="0" title="Según la ley 7 días son obligatorios" ui-jq="tooltip">
+        	<p>Além de finais de semana, quantos dias de folga você gostaria de ter ao ano?</p>
+        	<input type="number" value="" placeholder="Férias" class="inputcantidades" ng-model="data.diasVacaciones" min="0">
+            <input type="number" value="" placeholder="Feriados" class="inputcantidades" ng-model="data.diasFeriados" min="0">
         </div>
         <div class="twocol">
             <img src="../images/icoincapacidad.png" />
-            <p>A veces nos enfermamos, ¿cuántos días por enfermedad prevés tomar al año?</p>
-            <input type="number" value="" placeholder="Días Incapacidad" class="inputcantidades" ng-model="data.diasIncapacidad" min="0">
+            <p>As vezes nós ficamos doentes, quantos dias ao ano você estima que não poderia trabalhar por doença?</p>
+            <input type="number" value="" placeholder="Dias de folga" class="inputcantidades" ng-model="data.diasIncapacidad" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icoadministracion.png" />
-        	<p>¿Qué porcentaje de tu tiempo utilizas en juntas, cotizaciones, etc.?</p>
-        	<input type="number" value="" placeholder="Administración" class="inputcantidades" ng-model="data.porcentajeAdmin" min="0" title="Un buen punto de partida es 30%" ui-jq="tooltip">
+        	<p>Qual porcentagem do seu tempo tem que usar em assembléias, cotações, etc.?</p>
+        	<input type="number" value="" placeholder="Administração" class="inputcantidades" ng-model="data.porcentajeAdmin" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icoservicios.png" />
-        	<p>¿Cuáles son tus gastos fijos mensuales?</p>
-        	<input type="number" value="" placeholder="Renta" class="inputcantidades" ng-model="data.rentaMensual" min="0">
-            <input type="number" value="" placeholder="Servicios" class="inputcantidades" ng-model="data.serviciosMensual" min="0">
-            <input type="number" value="" placeholder="Papelería" class="inputcantidades" ng-model="data.papeleriaMensual" min="0">
-            <input type="number" value="" placeholder="Otros" class="inputcantidades" ng-model="data.otrosMensual" min="0">
+        	<p>Quais são as suas despesas fixas por mês?</p>
+        	<input type="number" value="" placeholder="Aluguel" class="inputcantidades" ng-model="data.rentaMensual" min="0">
+            <input type="number" value="" placeholder="Serviços" class="inputcantidades" ng-model="data.serviciosMensual" min="0">
+            <input type="number" value="" placeholder="Papelaria" class="inputcantidades" ng-model="data.papeleriaMensual" min="0">
+            <input type="number" value="" placeholder="Outros" class="inputcantidades" ng-model="data.otrosMensual" min="0">
             <p class="ptotal"><strong>Total:</strong>{{data.fijosMensuales()}}</p>
         </div>
         <div class="twocol last">
         	<img src="../images/icoganancia.png" />
-        	<p>Tu trabajo es muy valioso, ¿qué porcentaje mereces de ganancia?</p>
-        	<input type="number" value="" placeholder="Ganancia" class="inputcantidades" ng-model="data.porcentajeUtilidad" min="0" title="Puedes empezar con el 20% y añadir 2% por año de experiencia" ui-jq="tooltip">
+        	<p>O seu trabalho vale muito, qual porcentagem de ganho você merece?</p>
+        	<input type="number" value="" placeholder="Rendimento" class="inputcantidades" ng-model="data.porcentajeUtilidad" min="0">
         </div>
     </div>
     
     <div class="row preciorow">
         <div class="fourcol">
-	        <p class="fraseprecio">Tu hora de trabajo vale:</p>
+	        <p class="fraseprecio">A sua hora de trabalho custa:</p>
         	<p id="elPrecio" class="preciohora">{{data.horaDiseno() | currency}}</p>
 
         </div>
         <div class="fourcol last">
-        	<p class="frasepreciomensual">Necesitas vender <span class="preciomensual">{{data.ventaMensual() | currency}}</span> al mes para ser rentable</p>
-            <p>Ve todo el procedimiento <a id="saberMas" href="#explicacion">aquí</a></p>
+        	<p class="frasepreciomensual">Você precisa vender <span class="preciomensual">{{data.ventaMensual() | currency:"R$"}}</span> ao mês para ter o lucro desejado</p>
+            <p>Veja todo o procedimento <a id="saberMas" href="#explicacion">aqui</a></p>
         </div>
         <div class="fourcol last">
         	<a href="https://twitter.com/share" class="twitter-share-button" data-text="¿Sabes cuánto cobrar? Descúbrelo #HoraJusta" data-via="CosmonautaMX" data-lang="es" data-related="CosmonautaMX" data-hashtags="Cosmonauta">Twittear</a>
@@ -168,57 +169,57 @@
     <div id="explicacion" class="row explicacionrow"> 
     	<div class="onecol"></div>
         <div class="tencol">
-            <p>Para calcular el precio por hora para un salario de: {{data.salario | currency}} hacemos lo siguiente:</p>
+            <p>Para calcular o preço para um salário de: {{data.salario | currency:"R$"}} se faz o seguinte:</p>
             <ol>
                 <li>
-                    <p>Calculamos tu salario anual:</p>
-                    <p>Salario mensual × 12.5 meses (<small>{{conf.meses | number}} meses + {{conf.aguinaldo * 30 | number}} días de aguinaldo.</small>)</p>
-                    <p>{{data.salario | currency}} × 12.5 = <strong>{{data.salarioAnual() | currency}}</strong></p> 
+                    <p>Calcular o seu salário anual:</p>
+                    <p>Salário × 12.5 meses (<small>{{conf.meses | number}} meses + {{conf.aguinaldo * 30 | number}} dias de bônus.</small>)</p>
+                    <p>{{data.salario | currency:"R$"}} × 12.5 = <strong>{{data.salarioAnual() | currency}}</strong></p> 
 
 
                 </li>
                 <li>
-                    <p>Encontramos tu costo básico por hora:</p>
-                    <p>Salario anual ÷ {{data.horasPosibles() | number}} horas posibles (<small>{{conf.horas | number}} horas × {{conf.dias | number}} días × {{conf.semanas | number}} semanas</small>)</p>
-                    <p>{{data.salarioAnual()| currency}} ÷ {{data.horasPosibles()| number}} = <strong>{{data.costoBasico() | currency}}</strong></p>
+                    <p>Encontrar seu custo base por hora:</p>
+                    <p>Salário anual ÷ {{data.horasPosibles() | number}} horas possíveis (<small>{{conf.horas | number}} horas × {{conf.dias | number}} dias × {{conf.semanas | number}} semanas</small>)</p>
+                    <p>{{data.salarioAnual()| currency:"R$"}} ÷ {{data.horasPosibles()| number}} = <strong>{{data.costoBasico() | currency:"R$"}}</strong></p>
                 </li>
                 <li>
-                    <p>Sumamos el costo de las horas que no trabajarás:</p>
-                    <p>{{data.diasFeriados | number}} días feriados × {{conf.horas | number}} hs. = {{data.horasFeriados() | number}} hs. +</p>
-                    <p>{{data.diasVacaciones | number}} días de vacaciones × {{conf.horas | number}} = {{data.horasVacaciones() | number}} hs. + </p>
-                    <p>Prima vacacional (<small>Calculada al {{conf.porcentajePrima * 100}}%</small>) {{data.horasPrima() | number}} hs. + </p>
-                    <p>{{data.diasIncapacidad | number}} días de incapacidad × {{conf.horas | number}} hs. = {{data.horasIncapacidad() | number}} hs.</p>
-                    <p><strong>{{data.horasNoPosibles() | number}} hs. × {{data.costoBasico() | currency}} de costo básico = {{data.costoNoPosibles() | currency}}</strong></p>
+                    <p>Adicionar o custo das horas que você não vai trabalhar:</p>
+                    <p>{{data.diasFeriados | number}} dias feriados × {{conf.horas | number}} hs. = {{data.horasFeriados() | number}} hs. +</p>
+                    <p>{{data.diasVacaciones | number}} dias de férias × {{conf.horas | number}} = {{data.horasVacaciones() | number}} hs. + </p>
+                    <p>Pagamento de férias (<small>Calculada al {{conf.porcentajePrima * 100}}%</small>) {{data.horasPrima() | number}} hs. + </p>
+                    <p>{{data.diasIncapacidad | number}} dias de incapacidade × {{conf.horas | number}} hs. = {{data.horasIncapacidad() | number}} hs.</p>
+                    <p><strong>{{data.horasNoPosibles() | number}} hs. × {{data.costoBasico() | currency}} custo base = {{data.costoNoPosibles() | currency:"R$"}}</strong></p>
                 </li>
                 <li>
-                    <p>Calculamos el costo del tiempo que dedicas a cotizaciones y juntas (tiempo administrativo):</p>
-                    <p>{{data.porcentajeAdmin | number}}% ({{data.horasPosibles() | number}} hs. posibles - {{data.horasNoPosibles() | number}} horas que no trabajarás) × {{data.costoBasico() | currency}} costo básico.</p>
+                    <p>Estimar o custo do tempo que você precisa para cotações e assembléias (tempo de tarefas administrativas):</p>
+                    <p>{{data.porcentajeAdmin | number}}% ({{data.horasPosibles() | number}}  horas possíveis - {{data.horasNoPosibles() | number}} horas que você não vai trabalhar) ) × {{data.costoBasico() | currency}} custo base.</p>
                     <p><strong>{{data.porcentajeAdmin | number}}% × {{data.horasEfectivas() | number}} hs. × {{data.costoBasico() | currency}} = {{data.costoAdmin() | currency}}</strong></p>
                 </li>
                 <li>
-                    <p>Calculamos el total de tus gastos fijos:</p>
-                    <p>Renta mensual: {{data.rentaMensual | currency}} +</p>
-                    <p>Servicios mensuales: {{data.serviciosMensual | currency }} +</p>
-                    <p>Papelería mensual: {{data.papeleriaMensual | currency}} +</p>
-                    <p>Otros gastos fijos mensuales: {{data.otrosMensual | currency}}</p>
-                    <p>Gastos fijos mensuales {{data.fijosMensuales() | currency}} × {{conf.meses | number}} meses = <strong>{{data.fijosAnuales()| currency}} fijos anuales</strong></p>  
+                    <p>5 Estimar o total de despesas fixas:</p>
+                    <p>Aluguel mensal: {{data.rentaMensual | currency:"R$"}} +</p>
+                    <p>Serviços mensais: {{data.serviciosMensual | currency:"R$" }} +</p>
+                    <p>Papelaria mensal: {{data.papeleriaMensual | currency:"R$"}} +</p>
+                    <p>Outras despesas fixas mensais: {{data.otrosMensual | currency:"R$"}}</p>
+                    <p>Despesas fixas mensais {{data.fijosMensuales() | currency:"R$"}} × {{conf.meses | number}} meses = <strong>{{data.fijosAnuales()| currency:"R$"}} fixos anuais</strong></p>  
                 </li>
                 <li>
-                    <p>Sumamos el costo de las horas que no trabajas más el costo del tiempo de administración y el de los gastos fijos para obtener el costo extra anual por tu trabajo.</p>
-                    <p>{{data.costoNoPosibles() | currency}} + {{data.costoAdmin() | currency}} + {{data.fijosAnuales()| currency}} = <strong>{{data.costoExtraAnual() | currency}} de costo extra anual</strong></p>
+                    <p>Somar o custo das horas que você não vai trabalhar mais o custo do tempo para a administração o as despesas fixas para obter o custo extra por ano pelo seu trabalho.</p>
+                    <p>{{data.costoNoPosibles() | currency:"R$"}} + {{data.costoAdmin() | currency:"R$"}} + {{data.fijosAnuales()| currency:"R$"}} = <strong>{{data.costoExtraAnual() | currency:"R$"}} de custo extra por ano</strong></p>
                 </li>
                 <li>
-                    <p>Ahora calculamos lo que ganarás al año:</p>
-                    <p>{{data.horasPosibles() | number}} hs. posibles al año - {{data.horasNoPosibles() | number}} hs. de vacaciones, feriado e incapacidad - {{data.horasAdmin() | number}} hs. de juntas cotizaciones × {{data.costoBasico() | currency}} costo básico</p>
-                    <p><strong>{{data.horasVendibles() | number}} horas de diseño × {{data.costoBasico() | currency }} = {{data.gananciaAnual() | currency}} de ganancia anual.</strong></p>
+                    <p>Depois, estimar o ganho que você deve ter por ano:</p>
+                    <p>{{data.horasPosibles() | number}} hs. Possíveis por ano - {{data.horasNoPosibles() | number}} hs. de férias, feriados e incapacidade - {{data.horasAdmin() | number}} hs. assembléias, cotações × {{data.costoBasico() | currency:"R$"}} custo base</p>
+                    <p><strong>{{data.horasVendibles() | number}} horas de desenho × {{data.costoBasico() | currency:"R$" }} = {{data.gananciaAnual() | currency:"R$"}} de lucro anual.</strong></p>
                 </li>
                 <li>
-                    <p>Calculamos el porcentaje de rentabilidad dividiendo el costo entre la ganancia:</p>
-                    <p>{{data.costoExtraAnual() | currency}} ÷ {{data.gananciaAnual() | currency}} = {{data.porcentajeRentabilidad() | number}}%</p>
+                    <p>Estimar a porcentagem de rentabilidade que é produto da divisão do custo entre o lucro:</p>
+                    <p>{{data.costoExtraAnual() | currency:"R$"}} ÷ {{data.gananciaAnual() | currency:"R$"}} = {{data.porcentajeRentabilidad() | number}}%</p>
                 </li>
                 <li>
-                    <p>Por último para calcular la hora de diseño sumamos el porcentaje de rentabilidad y el porcentaje de utilidad a nuestro costo básico:</p>
-                    <p>{{data.costoBasico()| currency}} + {{data.costoBasico()| currency}} × {{data.porcentajeRentabilidad() | number}}%  + {{data.costoBasico() | currency}} × {{data.porcentajeUtilidad | number}}% = <strong>{{data.horaDiseno() | currency}} por hora de diseño.</strong> </p>
+                    <p>Finalmente, para calcular a hora de desenho é preciso somar a porcentagem de ganho ao custo básico:</p>
+                    <p>{{data.costoBasico()| currency:"R$"}} + {{data.costoBasico()| currency:"R$"}} × {{data.porcentajeRentabilidad() | number}}%  + {{data.costoBasico() | currency:"R$"}} × {{data.porcentajeUtilidad | number}}% = <strong>{{data.horaDiseno() | currency:"R$"}} por hora de desenho.</strong> </p>
                 </li>
             </ol>
         </div>
@@ -233,7 +234,7 @@
     	<div class="twocol">
         </div>
 		<div class="eightcol">
-            <p>Desarrollado por <a href="http://cosmonauta.mx#contacto-nav">Cosmonauta.MX</a>, basado en los cálculos de <a href="http://es.scribd.com/doc/7739733/Calculo-de-Costo-Por-Hora-de-Trabajo-de-Diseno" target="_blank">Silvia Oropeza y Josefina Reséndiz</a></p>
+            <p>Desenvolvido por <a href="http://cosmonauta.mx#contacto-nav">Cosmonauta.MX</a>, baseado nos cálculos feitos <a href="http://es.scribd.com/doc/7739733/Calculo-de-Costo-Por-Hora-de-Trabajo-de-Diseno" target="_blank">Silvia Oropeza y Josefina Reséndiz</a></p>
             
             <div class="socialnets"><a href="http://twitter.com/CosmonautaMX" class="cosmotwitter" target="_blank"><span>Twitter de Cosmonauta</span></a>
             <a href="http://facebook.com/CosmonautaMX" class="cosmofacebook" target="_blank"><span>Facebook de Cosmonauta</span></a>
