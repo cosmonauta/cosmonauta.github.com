@@ -92,7 +92,7 @@
         <div class="twocol">
         	<img src="../images/icosueldo.png" />
         	<p>O quanto você gostaria de ganhar ao mês?</p>
-        	<input type="number" value="" placeholder="Salário" class="inputcantidades" ng-model="data.salario" min="0">
+        	<input type="number" step="any" value="" placeholder="Salário" class="inputcantidades" ng-model="data.salario" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icovacaciones.png" />
@@ -108,21 +108,21 @@
         <div class="twocol">
         	<img src="../images/icoadministracion.png" />
         	<p>Qual porcentagem do seu tempo tem que usar em assembléias, cotações, etc.?</p>
-        	<input type="number" value="" placeholder="Administração" class="inputcantidades" ng-model="data.porcentajeAdmin" min="0">
+        	<input type="number" step="any" value="" placeholder="Administração" class="inputcantidades" ng-model="data.porcentajeAdmin" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icoservicios.png" />
         	<p>Quais são as suas despesas fixas por mês?</p>
-        	<input type="number" value="" placeholder="Aluguel" class="inputcantidades" ng-model="data.rentaMensual" min="0">
-            <input type="number" value="" placeholder="Serviços" class="inputcantidades" ng-model="data.serviciosMensual" min="0">
-            <input type="number" value="" placeholder="Papelaria" class="inputcantidades" ng-model="data.papeleriaMensual" min="0">
-            <input type="number" value="" placeholder="Outros" class="inputcantidades" ng-model="data.otrosMensual" min="0">
+        	<input type="number" step="any" value="" placeholder="Aluguel" class="inputcantidades" ng-model="data.rentaMensual" min="0">
+            <input type="number" step="any" value="" placeholder="Serviços" class="inputcantidades" ng-model="data.serviciosMensual" min="0">
+            <input type="number" step="any" value="" placeholder="Papelaria" class="inputcantidades" ng-model="data.papeleriaMensual" min="0">
+            <input type="number" step="any" value="" placeholder="Outros" class="inputcantidades" ng-model="data.otrosMensual" min="0">
             <p class="ptotal"><strong>Total:</strong>{{data.fijosMensuales()}}</p>
         </div>
         <div class="twocol last">
         	<img src="../images/icoganancia.png" />
         	<p>O seu trabalho vale muito, qual porcentagem de ganho você merece?</p>
-        	<input type="number" value="" placeholder="Rendimento" class="inputcantidades" ng-model="data.porcentajeUtilidad" min="0">
+        	<input type="number" step="any" value="" placeholder="Rendimento" class="inputcantidades" ng-model="data.porcentajeUtilidad" min="0">
         </div>
     </div>
     
