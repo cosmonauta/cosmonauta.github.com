@@ -91,37 +91,37 @@
         <div class="twocol">
         	<img src="../images/icosueldo.png" />
         	<p>¿Cuánto te gustaría ganar al mes?</p>
-        	<input type="number" value="" placeholder="Sueldo" class="inputcantidades" ng-model="data.salario" min="0">
+        	<input type="number" step="any" value="" placeholder="Sueldo" class="inputcantidades" ng-model="data.salario" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icovacaciones.png" />
         	<p>Además de los fines de semana, ¿cuántos días libres quieres tener al año?</p>
-        	<input type="number" value="" placeholder="Vacaciones" class="inputcantidades" ng-model="data.diasVacaciones" min="0" title="En México, se parte de 6 días y se agregan 2 por año trabajado" ui-jq="tooltip">
-            <input type="number" value="" placeholder="Días festivos" class="inputcantidades" ng-model="data.diasFeriados" min="0" title="Según la ley 7 días son obligatorios" ui-jq="tooltip">
+        	<input type="number" step="any" value="" placeholder="Vacaciones" class="inputcantidades" ng-model="data.diasVacaciones" min="0" title="En México, se parte de 6 días y se agregan 2 por año trabajado" ui-jq="tooltip">
+            <input type="number" step="any" value="" placeholder="Días festivos" class="inputcantidades" ng-model="data.diasFeriados" min="0" title="Según la ley 7 días son obligatorios" ui-jq="tooltip">
         </div>
         <div class="twocol">
             <img src="../images/icoincapacidad.png" />
             <p>A veces nos enfermamos, ¿cuántos días por enfermedad prevés tomar al año?</p>
-            <input type="number" value="" placeholder="Días Incapacidad" class="inputcantidades" ng-model="data.diasIncapacidad" min="0">
+            <input type="number" step="any" value="" placeholder="Días Incapacidad" class="inputcantidades" ng-model="data.diasIncapacidad" min="0">
         </div>
         <div class="twocol">
         	<img src="../images/icoadministracion.png" />
         	<p>¿Qué porcentaje de tu tiempo utilizas en juntas, cotizaciones, etc.?</p>
-        	<input type="number" value="" placeholder="Administración" class="inputcantidades" ng-model="data.porcentajeAdmin" min="0" title="Un buen punto de partida es 30%" ui-jq="tooltip">
+        	<input type="number" step="any" value="" placeholder="Administración" class="inputcantidades" ng-model="data.porcentajeAdmin" min="0" title="Un buen punto de partida es 30%" ui-jq="tooltip">
         </div>
         <div class="twocol">
         	<img src="../images/icoservicios.png" />
         	<p>¿Cuáles son tus gastos fijos mensuales?</p>
-        	<input type="number" value="" placeholder="Renta" class="inputcantidades" ng-model="data.rentaMensual" min="0">
-            <input type="number" value="" placeholder="Servicios" class="inputcantidades" ng-model="data.serviciosMensual" min="0">
-            <input type="number" value="" placeholder="Papelería" class="inputcantidades" ng-model="data.papeleriaMensual" min="0">
-            <input type="number" value="" placeholder="Otros" class="inputcantidades" ng-model="data.otrosMensual" min="0">
+        	<input type="number" step="any" value="" placeholder="Renta" class="inputcantidades" ng-model="data.rentaMensual" min="0">
+            <input type="number" step="any" value="" placeholder="Servicios" class="inputcantidades" ng-model="data.serviciosMensual" min="0">
+            <input type="number" step="any" value="" placeholder="Papelería" class="inputcantidades" ng-model="data.papeleriaMensual" min="0">
+            <input type="number" step="any" value="" placeholder="Otros" class="inputcantidades" ng-model="data.otrosMensual" min="0">
             <p class="ptotal"><strong>Total:</strong>{{data.fijosMensuales()}}</p>
         </div>
         <div class="twocol last">
         	<img src="../images/icoganancia.png" />
         	<p>Tu trabajo es muy valioso, ¿qué porcentaje mereces de ganancia?</p>
-        	<input type="number" value="" placeholder="Ganancia" class="inputcantidades" ng-model="data.porcentajeUtilidad" min="0" title="Puedes empezar con el 20% y añadir 2% por año de experiencia" ui-jq="tooltip">
+        	<input type="number" step="any" value="" placeholder="Ganancia" class="inputcantidades" ng-model="data.porcentajeUtilidad" min="0" title="Puedes empezar con el 20% y añadir 2% por año de experiencia" ui-jq="tooltip">
         </div>
     </div>
     
