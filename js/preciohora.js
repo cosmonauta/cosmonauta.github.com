@@ -150,7 +150,7 @@ CalcApp.controller('calcCtrl', function CalculadoraCtrl($scope, Data, Config) {
   };
 
   data.utilidad = function(){
-    return data.horaJusta() * data.porcentajeUtilidad / 100;
+    return data.costoBasico() * data.porcentajeUtilidad / 100;
   };
 
   data.ventaAnual = function(){
